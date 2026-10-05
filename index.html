@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Missed-call cost calculator for contractors</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <p class="kicker">ROOFERS · HVAC · MED SPAS · DENTISTS</p>
+    <h1>You already paid for the lead. The other guy texted first.</h1>
+    <p class="sub">A missed call is a job you funded and someone else booked.</p>
+    <nav>
+      <a href="index.html">Calculator</a>
+      <a href="compare.html">Compare</a>
+      <a href="pricing.html">Price</a>
+    </nav>
+  </header>
+  <main>
+    <p>Google Local Services Ads bills a missed call when it rings more than 20 seconds during business hours, starting October 1, 2026. Even before that, a lead who waits until tomorrow has usually booked the shop that answered.</p>
+    <div class="card">
+      <h2>What it cost you last month</h2>
+      <label>Ad spend ($)</label>
+      <input id="spend" type="number" value="4000" />
+      <label>Leads from that spend</label>
+      <input id="leads" type="number" value="80" />
+      <label>Percent you did not reach the same day</label>
+      <input id="miss" type="number" value="30" />
+      <label>Average job ($)</label>
+      <input id="job" type="number" value="1200" />
+      <label>Close rate if you had reached them same day (%)</label>
+      <input id="close" type="number" value="25" />
+      <button type="button" onclick="calc()">Show the leak</button>
+      <div class="result" id="out"></div>
+      <p class="note">Arithmetic, not a promise. Your numbers in, your number out.</p>
+    </div>
+    <h2>The fix is a text in under a minute</h2>
+    <p>The missed call sends a text from the business number, drops the caller on a list, and offers a booking link. HighLevel does that in the same login as the pipeline and the calendar. Starter is $97 a month. Texting is a few cents on top.</p>
+    <p><a class="cta" href="https://www.gohighlevel.com/pricing?fp_ref=jeremy-ae86db">Start the 14-day trial</a></p>
+    <p class="note">Affiliate disclosure: I earn a commission if you buy through this link, at no extra cost to you.</p>
+  </main>
+  <footer>Not affiliated with HighLevel beyond the affiliate program. Prices checked October 2026 and can change.</footer>
+  <script>
+    function calc() {
+      const spend = +document.getElementById('spend').value || 0;
+      const leads = +document.getElementById('leads').value || 0;
+      const miss = (+document.getElementById('miss').value || 0) / 100;
+      const job = +document.getElementById('job').value || 0;
+      const close = (+document.getElementById('close').value || 0) / 100;
+      const lostJobs = leads * miss * close;
+      const lost = lostJobs * job;
+      const el = document.getElementById('out');
+      el.style.display = 'block';
+      el.innerHTML = 'About <strong>$' + Math.round(lost).toLocaleString() + '</strong> left on the table. That is ' + lostJobs.toFixed(1) + ' jobs from leads you already paid for. Ad spend was $' + spend.toLocaleString() + '.';
+    }
+  </script>
+</body>
+</html>

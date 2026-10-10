@@ -20,3 +20,6 @@ th, td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line);
 th { color:var(--navy); }
 .note, footer { font-family:Arial, sans-serif; font-size:13px; color:var(--muted); }
 footer { padding:10px 20px 40px; max-width:760px; }
+details { margin:12px 0; border:1px solid var(--line); border-radius:8px; background:var(--card); padding:10px 14px; }
+summary { cursor:pointer; font-family:Arial, sans-serif; font-size:14px; color:var(--navy); }
+details[open] summary { margin-bottom:8px; }

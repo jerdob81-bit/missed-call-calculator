@@ -9,8 +9,8 @@
 <body>
   <header>
     <p class="kicker">ROOFERS · HVAC · MED SPAS · DENTISTS</p>
-    <h1>You already paid for the lead. The other guy texted first.</h1>
-    <p class="sub">A missed call is a job you funded and someone else booked.</p>
+    <h1>You already paid for the lead. Did anyone text them back?</h1>
+    <p class="sub">Put in your own numbers and see what unanswered calls could be worth.</p>
     <nav>
       <a href="index.html">Calculator</a>
       <a href="compare.html">Compare</a>
@@ -18,41 +18,73 @@
     </nav>
   </header>
   <main>
-    <p>Google Local Services Ads bills a missed call when it rings more than 20 seconds during business hours, starting October 1, 2026. Even before that, a lead who waits until tomorrow has usually booked the shop that answered.</p>
+    <p>If you buy Google Local Services Ads, Google can charge you for a missed call during your business hours when the caller stays on the line for more than 20 seconds.</p>
+    <details>
+      <summary>Google's conditions and exceptions</summary>
+      <p>Business hours are the hours in your Google Business Profile, and the call must also fall within your ad schedule if you set one. If your phone menu asks callers to press a key, the 20 seconds start after the key press, and callers who hang up without pressing a key are not charged. Calls that reach voicemail or an automated greeting during business hours are treated as connected and are charged after 20 seconds, whether or not the caller leaves a message. Follow-up calls with the same customer within 15 days are not charged again. Source: <a href="https://support.google.com/localservices/answer/7195435">Google Local Services Help, "How leads work"</a>.</p>
+    </details>
     <div class="card">
-      <h2>What it cost you last month</h2>
-      <label>Ad spend ($)</label>
-      <input id="spend" type="number" value="4000" />
-      <label>Leads from that spend</label>
-      <input id="leads" type="number" value="80" />
-      <label>Percent you did not reach the same day</label>
-      <input id="miss" type="number" value="30" />
-      <label>Average job ($)</label>
-      <input id="job" type="number" value="1200" />
-      <label>Close rate if you had reached them same day (%)</label>
-      <input id="close" type="number" value="25" />
-      <button type="button" onclick="calc()">Show the leak</button>
+      <h2>What-if: revenue from leads you did not reach</h2>
+      <label for="spend">Ad spend last month ($)</label>
+      <input id="spend" type="number" min="0" step="any" value="4000" />
+      <label for="leads">Leads from that spend</label>
+      <input id="leads" type="number" min="0" step="any" value="80" />
+      <label for="miss">Percent you did not reach the same day (0–100)</label>
+      <input id="miss" type="number" min="0" max="100" step="any" value="30" />
+      <label for="job">Average job ($)</label>
+      <input id="job" type="number" min="0" step="any" value="1200" />
+      <label for="close">Close rate you assume if you had reached them same day (0–100%)</label>
+      <input id="close" type="number" min="0" max="100" step="any" value="25" />
+      <button type="button" onclick="calc()">Calculate</button>
       <div class="result" id="out"></div>
-      <p class="note">Arithmetic, not a promise. Your numbers in, your number out.</p>
+      <p class="note">This is a hypothetical revenue opportunity based on the numbers you enter. It is not measured lost sales, not profit (it does not subtract materials, labor, or software costs), and not an amount a text-back is guaranteed to recover. Formula: leads × percent not reached × assumed close rate × average job.</p>
     </div>
-    <h2>The fix is a text in under a minute</h2>
-    <p>The missed call sends a text from the business number, drops the caller on a list, and offers a booking link. HighLevel does that in the same login as the pipeline and the calendar. Starter is $97 a month. Texting is a few cents on top.</p>
+    <h2>How missed-call text back works</h2>
+    <p>With HighLevel's Missed Call Text Back turned on, a call to your HighLevel number that is not answered within the ring timeout you set sends the caller an automatic text with a message you write, such as a booking link. HighLevel's help center suggests a ring timeout of about 10 to 20 seconds. The caller gets a written reply they can answer instead of waiting for a callback. Whether that turns into a booked job depends on your message, your follow-up, and the customer.</p>
+    <h2>What it costs and what it takes to set up</h2>
+    <ul>
+      <li><strong>Plan:</strong> HighLevel's Agency Starter plan is $97 a month.</li>
+      <li><strong>Extra charges:</strong> a phone number, calls, and texts are billed by usage on top of the plan, plus a one-time US texting registration fee and a monthly registration fee.</li>
+      <li><strong>Setup:</strong> you need a phone number in HighLevel (or your calls routed to one), US texting registration (A2P 10DLC), and Missed Call Text Back turned on with your message. Registration approval is not instant, and texts to US numbers may not deliver until it is approved.</li>
+      <li><strong>Trial billing:</strong> HighLevel says billing starts automatically when the 14-day trial ends unless you cancel, and usage charges can apply during the trial.</li>
+    </ul>
+    <details>
+      <summary>Phone, text, and registration rates</summary>
+      <ul>
+        <li>US local number: $1.15 a month.</li>
+        <li>US texts: $0.00747 per segment, sent or received, plus carrier fees.</li>
+        <li>Calls: $0.0166 per minute outbound, $0.01165 per minute inbound.</li>
+        <li>A2P 10DLC registration: $22.50 one-time for sole proprietor and low-volume standard brands, plus a monthly campaign fee of $1.50 to $10 depending on the campaign type.</li>
+      </ul>
+      <p>Rates as listed by HighLevel in September 2026 and subject to change. Sources: <a href="https://help.gohighlevel.com/en/support/solutions/articles/48001223556">HighLevel, "LC Phone Pricing &amp; Billing Guide"</a>; <a href="https://help.gohighlevel.com/support/solutions/articles/155000005200-a2p-10dlc-messaging-fees-registration-monthly-and-carrier-costs">HighLevel, "A2P 10DLC Messaging Fees"</a>.</p>
+    </details>
     <p><a class="cta" href="https://www.gohighlevel.com/pricing?fp_ref=jeremy-ae86db">Start the 14-day trial</a></p>
-    <p class="note">Affiliate disclosure: I earn a commission if you buy through this link, at no extra cost to you.</p>
+    <p class="note">Affiliate disclosure: this is my affiliate link. HighLevel pays me a commission if you buy through it, at no extra cost to you.</p>
   </main>
   <footer>Not affiliated with HighLevel beyond the affiliate program. Prices checked October 2026 and can change.</footer>
   <script>
+    function readNonNegative(id) {
+      const raw = String(document.getElementById(id).value).trim();
+      const v = Number(raw);
+      return raw !== '' && Number.isFinite(v) && v >= 0 ? v : null;
+    }
     function calc() {
-      const spend = +document.getElementById('spend').value || 0;
-      const leads = +document.getElementById('leads').value || 0;
-      const miss = (+document.getElementById('miss').value || 0) / 100;
-      const job = +document.getElementById('job').value || 0;
-      const close = (+document.getElementById('close').value || 0) / 100;
-      const lostJobs = leads * miss * close;
-      const lost = lostJobs * job;
       const el = document.getElementById('out');
+      const spend = readNonNegative('spend');
+      const leads = readNonNegative('leads');
+      const missRaw = readNonNegative('miss');
+      const job = readNonNegative('job');
+      const closeRaw = readNonNegative('close');
       el.style.display = 'block';
-      el.innerHTML = 'About <strong>$' + Math.round(lost).toLocaleString() + '</strong> left on the table. That is ' + lostJobs.toFixed(1) + ' jobs from leads you already paid for. Ad spend was $' + spend.toLocaleString() + '.';
+      if ([spend, leads, missRaw, job, closeRaw].some(v => v === null)) {
+        el.textContent = 'Enter a number of 0 or more in every field.';
+        return;
+      }
+      const miss = Math.min(missRaw, 100) / 100;
+      const close = Math.min(closeRaw, 100) / 100;
+      const jobs = leads * miss * close;
+      const revenue = jobs * job;
+      el.innerHTML = 'Hypothetical revenue opportunity: about <strong>$' + Math.round(revenue).toLocaleString() + '</strong>, or ' + jobs.toFixed(1) + ' jobs, if your assumptions hold. This is not measured lost sales and not profit. Ad spend entered: $' + Math.round(spend).toLocaleString() + '.';
     }
   </script>
 </body>
